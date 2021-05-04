@@ -11,7 +11,7 @@ Run `pip install -r requirement.txt` to install [MoviePy](https://zulko.github.i
 The program fetches the title and authorship information from the file names of the videos in `/media`, expecting the two strings separated with `_`, like such
 
 ```
-Title of my work_Me and my friends.mp4
+Title of the work_Me and my friends.mp4
 ```
 
 ## Usage
