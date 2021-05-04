@@ -77,4 +77,4 @@ for student_work in student_works:
 
 
 result = concatenate_videoclips(clips) 
-result.write_videofile("output.mp4"), 
+result.write_videofile("video_compilation.mp4"), 
