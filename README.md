@@ -16,4 +16,8 @@ Title of my work_Me and my friends.mp4
 
 ## Usage
 
-If it's not straightforward enough, run the program with `python main.py`, after all the video files is in it. If you are not happy with the result, feel free to tweak some of the exposed variables related to the text styles.
+If it's not straightforward enough, after all the video files is in `/media` folder, run the program with 
+```
+python main.py
+```
+If you are not happy with the result, feel free to tweak some of the exposed variables related to the text styles.
