@@ -1,3 +1,7 @@
 *.mp4
+*.avi
+*.webm
+*.mov
+*.mp3
 .vscode
 .DS_Store

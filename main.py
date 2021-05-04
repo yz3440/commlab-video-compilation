@@ -4,6 +4,7 @@ from os import path, listdir
 import random
 
 MEDIA_DIR = path.join(path.dirname(__file__),"media")
+VIDEO_FORMATS = ('.mp4','.avi','.webm','.mov')
 
 class StudentWork:
   def __init__(self,absolute_path):
@@ -16,37 +17,40 @@ student_works = []
 
 # loading the student works to list
 for file in listdir(MEDIA_DIR):
-    if file.endswith(".mp4"):
+    if file.endswith(VIDEO_FORMATS):
       student_work = StudentWork(path.join(MEDIA_DIR, file))
       student_works.append(student_work)
 
 random.shuffle(student_works)
 
-
+# modify these to change the visuals
 SCREEN_SIZE = (1920,1080)
 TEXT_FADEIN_DURATION = 1
 TEXT_FADEOUT_DURATION = 1
-TEXT_DISPLAY_DURATION = 2
+TEXT_DISPLAY_DURATION = 0
+
 FONT = "Times-Roman"      # font must be present in your imagemagick installation, use "convert -list font" to check
+TITLE_FONTSIZE = 70
+AUTHOR_FONTSIZE = 50
+FONT_COLOR= "white"
 
 clips = []
 
 # iterating through student works
 for student_work in student_works:
-  print(student_work.title, student_work.author)
+  print(student_work.title, "-", student_work.author)
 
-  title_clip = ( TextClip(student_work.title,font=FONT,fontsize=70,color='white')
+  # making the title clip
+  title_clip = (TextClip(student_work.title,font=FONT, fontsize=TITLE_FONTSIZE, color=FONT_COLOR)
               .set_duration(TEXT_FADEIN_DURATION+TEXT_DISPLAY_DURATION+TEXT_FADEOUT_DURATION)
-              .fx(vfx.fadein,duration=TEXT_FADEIN_DURATION)
-              .fx(vfx.fadeout,duration=TEXT_FADEOUT_DURATION )
               )
 
   title_clip = title_clip.set_position((1920/2-title_clip.w/2,1080/2-title_clip.h/2));
 
-  author_clip = ( TextClip(student_work.author,font=FONT,fontsize=50,color='white')
+
+  # making the author clip
+  author_clip = (TextClip(student_work.author, font=FONT, fontsize=AUTHOR_FONTSIZE, color=FONT_COLOR)
               .set_duration(TEXT_FADEIN_DURATION+TEXT_DISPLAY_DURATION+TEXT_FADEOUT_DURATION)
-              .fx(vfx.fadein,duration=TEXT_FADEIN_DURATION)
-              .fx(vfx.fadeout,duration=TEXT_FADEOUT_DURATION )
               )
 
   author_clip = author_clip.set_position(
@@ -54,16 +58,23 @@ for student_work in student_works:
                1080/2 - author_clip.h/2 + title_clip.h + 10)
               );
 
-  empty = (TextClip(' ',size=SCREEN_SIZE)
+
+  # a place holder empty clip just to make the size correct
+  empty_clip = (TextClip(' ',size=SCREEN_SIZE)
             .set_duration(TEXT_FADEIN_DURATION+TEXT_DISPLAY_DURATION+TEXT_FADEOUT_DURATION)
             )
 
-  
-  text_clip = CompositeVideoClip([empty,title_clip,author_clip]);
+  # layer the tile and author clip on top of the empty clip and add transition
+  text_clip = (CompositeVideoClip([empty_clip,title_clip,author_clip])
+                .fx(vfx.fadein,duration=TEXT_FADEIN_DURATION)
+                .fx(vfx.fadeout,duration=TEXT_FADEOUT_DURATION
+                )
+              )
+
   video_clip = VideoFileClip(student_work.absolute_path)
 
   clips += [text_clip,video_clip]
 
 
 result = concatenate_videoclips(clips) 
-result.write_videofile("output.mp4") 
+result.write_videofile("output.mp4"), 
