@@ -15,7 +15,7 @@ Title of the work_Me and my friends.mp4
 ```
 
 The default title card looks like this:
-<img src='./default_title_card.jpg' width=500></img>
+![default title card](./default_title_card.jpg)
 
 ## Usage
 
