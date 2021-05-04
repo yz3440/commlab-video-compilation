@@ -27,7 +27,7 @@ random.shuffle(student_works)
 SCREEN_SIZE = (1920,1080)
 TEXT_FADEIN_DURATION = 1
 TEXT_FADEOUT_DURATION = 1
-TEXT_DISPLAY_DURATION = 0
+TEXT_DISPLAY_DURATION = 3
 
 FONT = "Times-Roman"      # font must be present in your imagemagick installation, use "convert -list font" to check
 TITLE_FONTSIZE = 70
