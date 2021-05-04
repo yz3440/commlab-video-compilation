@@ -14,10 +14,15 @@ The program fetches the title and authorship information from the file names of 
 Title of my work_Me and my friends.mp4
 ```
 
+The default title card looks like this:
+<img src='./default_title_card.jpg' width=500></img>
+
 ## Usage
 
-If it's not straightforward enough, after all the video files is in `/media` folder, run the program with 
+If it's not straightforward enough, after all the video files is in `/media` folder, run the program with
+
 ```
 python main.py
 ```
+
 If you are not happy with the result, feel free to tweak some of the exposed variables related to the text styles.
