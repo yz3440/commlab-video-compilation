@@ -113,4 +113,4 @@ with open('schedule.csv', 'w', newline='') as schedule_csv_file:
 
 # rendering the result
 result = concatenate_videoclips(result_clips) 
-# result.write_videofile("video_compilation.mp4"), 
+result.write_videofile("video_compilation.mp4"), 
