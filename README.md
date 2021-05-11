@@ -1,6 +1,6 @@
 # Commlab Video Compilation
 
-The script is used to compile video works from students in Communications Lab at NYU Shanghai. The program concatenates all the `.mp4` videos in the `/media` folder while adding a title card at the beginning of each.
+The script is used to compile video works from students in Communications Lab at NYU Shanghai. The program concatenates all videos inside the `/media` folder while adding a title card at the beginning of each, to meet the need of the IMA final show case. 
 
 ## Installation
 
