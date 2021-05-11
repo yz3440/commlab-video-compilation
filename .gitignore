@@ -3,5 +3,8 @@
 *.webm
 *.mov
 *.mp3
+*.m4v
+*.mpeg
 .vscode
 .DS_Store
+*.csv
