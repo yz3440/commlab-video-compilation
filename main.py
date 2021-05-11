@@ -23,7 +23,7 @@ for file in listdir(MEDIA_DIR):
       student_work = StudentWork(path.join(MEDIA_DIR, file))
       student_works.append(student_work)
 
-# random.shuffle(student_works)
+random.shuffle(student_works)
 
 
 # modify these to change the visuals
